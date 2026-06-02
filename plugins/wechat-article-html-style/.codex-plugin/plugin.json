@@ -1,0 +1,31 @@
+{
+  "name": "wechat-article-html-style",
+  "version": "1.0.0",
+  "description": "将公众号文章整理成统一风格的本地 HTML 排版页，便于复制到微信公众平台。",
+  "author": {
+    "name": "leinatorX",
+    "url": "https://github.com/leinatorX"
+  },
+  "homepage": "https://github.com/leinatorX/codex-skills-marketplace",
+  "repository": "https://github.com/leinatorX/codex-skills-marketplace",
+  "keywords": [
+    "codex",
+    "skills",
+    "skillshub"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "公众号 HTML 排版",
+    "shortDescription": "将公众号文章整理成统一风格的本地 HTML 排版页，便于复制到微信公众平台。",
+    "longDescription": "将公众号文章整理成统一风格的本地 HTML 排版页，便于复制到微信公众平台。",
+    "developerName": "leinatorX",
+    "category": "Productivity",
+    "capabilities": [
+      "Skills"
+    ],
+    "websiteURL": "https://github.com/leinatorX/codex-skills-marketplace",
+    "defaultPrompt": [
+      "使用 wechat-article-html-style 排版一篇公众号文章。"
+    ]
+  }
+}

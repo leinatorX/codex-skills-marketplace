@@ -1,0 +1,8 @@
+interface:
+  display_name: "公众号 HTML 排版风格"
+  short_description: "生成统一风格的公众号可复制 HTML"
+  brand_color: "#B91C1C"
+  default_prompt: "Use $wechat-article-html-style to convert this WeChat article into the project HTML publishing style."
+
+policy:
+  allow_implicit_invocation: true

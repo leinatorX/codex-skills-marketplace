@@ -1,0 +1,8 @@
+interface:
+  display_name: "应急科普公众号写作"
+  short_description: "策划和撰写应急安全类公众号图文"
+  brand_color: "#0F766E"
+  default_prompt: "Use $emergency-wechat-writer to plan and draft an emergency safety WeChat article."
+
+policy:
+  allow_implicit_invocation: true

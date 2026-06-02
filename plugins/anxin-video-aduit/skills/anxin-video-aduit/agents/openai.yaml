@@ -1,0 +1,4 @@
+interface:
+  display_name: "安信视频素材审核"
+  short_description: "通过安信 Gemini 多模态接口审核视频、文稿和分镜图是否适合发布到微信视频号和抖音。"
+  default_prompt: "使用 anxin-video-aduit 审核本地短视频、文稿或分镜图，把视频/图片以 base64 发送给 gemini-3.1-flash-lite-preview-thinking-high，并参考微信视频号和抖音运营规则输出违规风险与修改建议。"

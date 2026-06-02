@@ -1,0 +1,4 @@
+interface:
+  display_name: "安信企业 PPT"
+  short_description: "生成有叙事主线的蓝白企业汇报风 HTML PPT，可配图、截图预览并打包 zip 交付。"
+  default_prompt: "使用 anxin-ppt 生成一份中文蓝白企业汇报风 HTML PPT。生成前必须先阅读 assets/example-full-deck.html 理解内容密度，参考 references/content-guide.md 的标题对照表和卡片三要素。先确定受众、核心论点和叙事弧线，再按背景、问题、方案、证明、行动组织页面；封面使用全屏背景图加中文大标题，第二页必须是目录页；每页标题必须是结论句而非标签，每个卡片包含对象+事实/数字+含义；非封面页必须写 data-question 和 data-message；从 layouts.md 复制 HTML 骨架填充内容；生成后运行校验，截图并打包 zip。"

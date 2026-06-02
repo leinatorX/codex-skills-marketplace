@@ -1,0 +1,80 @@
+{
+  "name": "skillshub-codex",
+  "interface": {
+    "displayName": "SkillsHub Codex"
+  },
+  "plugins": [
+    {
+      "name": "anxin-image-gen",
+      "source": {
+        "source": "local",
+        "path": "./plugins/anxin-image-gen"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "anxin-ppt",
+      "source": {
+        "source": "local",
+        "path": "./plugins/anxin-ppt"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "anxin-video-aduit",
+      "source": {
+        "source": "local",
+        "path": "./plugins/anxin-video-aduit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "emergency-wechat-writer",
+      "source": {
+        "source": "local",
+        "path": "./plugins/emergency-wechat-writer"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "wechat-article-html-style",
+      "source": {
+        "source": "local",
+        "path": "./plugins/wechat-article-html-style"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "yingji-linglingqi-knowledge-graph",
+      "source": {
+        "source": "local",
+        "path": "./plugins/yingji-linglingqi-knowledge-graph"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

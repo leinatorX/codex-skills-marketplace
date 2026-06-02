@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+outputs/
+*.zip
+skills/anxin-ppt/test_ai_history/

@@ -1,0 +1,4 @@
+interface:
+  display_name: "安信图片生成器"
+  short_description: "基于 gpt-image-2 生成图片的 OpenClaw 技能。"
+  default_prompt: "Use $anxin-image-gen to generate an image from my prompt through the Anxin gpt-image-2 compatible API."

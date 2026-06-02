@@ -1,0 +1,31 @@
+{
+  "name": "anxin-ppt",
+  "version": "1.0.0",
+  "description": "生成有叙事主线的蓝白企业汇报风 HTML PPT，可配图、截图预览并打包交付。",
+  "author": {
+    "name": "leinatorX",
+    "url": "https://github.com/leinatorX"
+  },
+  "homepage": "https://github.com/leinatorX/codex-skills-marketplace",
+  "repository": "https://github.com/leinatorX/codex-skills-marketplace",
+  "keywords": [
+    "codex",
+    "skills",
+    "skillshub"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "安信企业 PPT",
+    "shortDescription": "生成有叙事主线的蓝白企业汇报风 HTML PPT，可配图、截图预览并打包交付。",
+    "longDescription": "生成有叙事主线的蓝白企业汇报风 HTML PPT，可配图、截图预览并打包交付。",
+    "developerName": "leinatorX",
+    "category": "Productivity",
+    "capabilities": [
+      "Skills"
+    ],
+    "websiteURL": "https://github.com/leinatorX/codex-skills-marketplace",
+    "defaultPrompt": [
+      "使用 anxin-ppt 生成一份中文企业汇报风 HTML PPT。"
+    ]
+  }
+}

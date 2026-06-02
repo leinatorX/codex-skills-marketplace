@@ -1,0 +1,31 @@
+{
+  "name": "anxin-video-aduit",
+  "version": "1.0.0",
+  "description": "审核短视频、文稿和分镜图是否适合发布到微信视频号和抖音。",
+  "author": {
+    "name": "leinatorX",
+    "url": "https://github.com/leinatorX"
+  },
+  "homepage": "https://github.com/leinatorX/codex-skills-marketplace",
+  "repository": "https://github.com/leinatorX/codex-skills-marketplace",
+  "keywords": [
+    "codex",
+    "skills",
+    "skillshub"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "安信短视频审核",
+    "shortDescription": "审核短视频、文稿和分镜图是否适合发布到微信视频号和抖音。",
+    "longDescription": "审核短视频、文稿和分镜图是否适合发布到微信视频号和抖音。",
+    "developerName": "leinatorX",
+    "category": "Productivity",
+    "capabilities": [
+      "Skills"
+    ],
+    "websiteURL": "https://github.com/leinatorX/codex-skills-marketplace",
+    "defaultPrompt": [
+      "使用 anxin-video-aduit 审核一组短视频发布素材。"
+    ]
+  }
+}

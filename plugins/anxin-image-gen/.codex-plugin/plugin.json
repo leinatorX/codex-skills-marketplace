@@ -1,0 +1,31 @@
+{
+  "name": "anxin-image-gen",
+  "version": "1.0.0",
+  "description": "通过安信 gpt-image-2 兼容接口生成封面、海报、知识图谱和信息图。",
+  "author": {
+    "name": "leinatorX",
+    "url": "https://github.com/leinatorX"
+  },
+  "homepage": "https://github.com/leinatorX/codex-skills-marketplace",
+  "repository": "https://github.com/leinatorX/codex-skills-marketplace",
+  "keywords": [
+    "codex",
+    "skills",
+    "skillshub"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "安信图片生成",
+    "shortDescription": "通过安信 gpt-image-2 兼容接口生成封面、海报、知识图谱和信息图。",
+    "longDescription": "通过安信 gpt-image-2 兼容接口生成封面、海报、知识图谱和信息图。",
+    "developerName": "leinatorX",
+    "category": "Productivity",
+    "capabilities": [
+      "Skills"
+    ],
+    "websiteURL": "https://github.com/leinatorX/codex-skills-marketplace",
+    "defaultPrompt": [
+      "使用 anxin-image-gen 生成一张中文内容配图。"
+    ]
+  }
+}

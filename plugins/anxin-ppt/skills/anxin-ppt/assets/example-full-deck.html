@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>数智赋能安全应急 · 安信科创企业汇报</title>
+<style>
+  :root{
+    --bg:#f6f9ff;--paper:#ffffff;--ink:#102033;--muted:#5d6b7c;--line:#dbe6f5;
+    --blue:#1457d9;--blue-2:#e8f1ff;--blue-3:#0b3f9c;--cyan:#2fbcff;
+    --shadow:0 24px 80px rgba(16,32,51,.12);
+    --shadow-sm:0 8px 32px rgba(16,32,51,.04), 0 1px 2px rgba(16,32,51,.02);
+    --sans:"Inter","Roboto","Microsoft YaHei UI","Microsoft YaHei","PingFang SC","Noto Sans SC","Segoe UI",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--ink);font-family:var(--sans)}
+  body{letter-spacing:0}
+  #deck{height:100vh;display:flex;transition:transform .45s cubic-bezier(.2,0,.2,1)}
+  .slide{width:100vw;height:100vh;flex:0 0 100vw;padding:5.4vh 5vw 5vh;position:relative;background:linear-gradient(135deg,#fff 0%,#f6f9ff 100%);overflow:hidden}
+  .slide::before{content:"";position:absolute;inset:auto -12vw -24vh auto;width:46vw;height:46vw;border-radius:50%;background:radial-gradient(circle,rgba(20,87,217,.11),rgba(20,87,217,0) 64%);pointer-events:none}
+  .slide.cover-full{padding:0;background:#0b2f6f;color:#fff}
+  .slide.cover-full::before{display:none}
+  .cover-bg{position:absolute;inset:0;z-index:0}
+  .cover-bg img{width:100%;height:100%;object-fit:cover;display:block}
+  .cover-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,20,44,.88) 0%,rgba(5,20,44,.82) 20%,rgba(5,20,44,.6) 35%,rgba(5,20,44,.3) 50%,rgba(5,20,44,.1) 65%,transparent 78%);z-index:1}
+  .cover-copy{position:relative;z-index:2;height:100vh;padding:8vh 6vw;display:flex;align-items:center;max-width:64vw}
+  .cover-copy h1{color:#fff;font-size:min(4.8vw,8.1vh);line-height:1.08;text-shadow:0 16px 44px rgba(0,0,0,.26)}
+  .chrome{display:flex;align-items:flex-start;justify-content:space-between;font-size:12px;color:var(--muted);letter-spacing:.08em;margin-bottom:4vh}
+  .brand{font-weight:700;color:var(--blue)}
+  .page{font-variant-numeric:tabular-nums}
+  .content{position:relative;z-index:1;height:calc(100vh - 15vh);display:grid;gap:3vh}
+  h1,h2,h3,p{margin:0}
+  h1{font-size:min(4.6vw,7.8vh);line-height:1.12;font-weight:650}
+  h2{font-size:min(3.4vw,6.1vh);line-height:1.16;font-weight:650}
+  h3{font-size:max(18px,1.32vw);line-height:1.3;font-weight:650}
+  .lead{font-size:max(16px,1.18vw);line-height:1.68;color:var(--muted);max-width:62ch}
+  .eyebrow{font-size:13px;color:var(--blue);font-weight:700;letter-spacing:.08em;margin-bottom:1.4vh}
+  .grid-2{display:grid;grid-template-columns:1.05fr .95fr;gap:4vw;align-items:center}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4vw}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2vw}
+  .cards-6{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:1.2vw 1.2vh}
+  .card{background:rgba(255,255,255,.65);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.8);padding:2.4vh 1.5vw;box-shadow:var(--shadow-sm)}
+  .card.blue{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:var(--shadow)}
+  .card.blue h3,.card.blue p,.card.blue .num{color:#fff}
+  .card.soft{background:var(--blue-2)}
+  .num{font-family:"Inter","Roboto","Segoe UI",sans-serif;font-size:min(3.6vw,6.2vh);line-height:.98;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums;letter-spacing:0}
+  .desc{margin-top:1.2vh;color:var(--muted);font-size:max(13px,.92vw);line-height:1.62}
+  .card.blue .desc{color:rgba(255,255,255,.84)}
+  .bar{height:2px;background:var(--blue);width:9vw;margin:2.4vh 0}
+  .section-wrap{height:100%;display:grid;grid-template-columns:.82fr 1.18fr;gap:4vw;align-items:center}
+  .section-mark{font-size:min(5vw,8.6vh);line-height:1;font-weight:700;color:var(--blue)}
+  .section-title{font-size:min(3.8vw,6.5vh);line-height:1.12;font-weight:650}
+  .section-points{display:grid;gap:1.2vh;margin-top:3vh}
+  .section-points p{padding:1.3vh 1.2vw;background:rgba(255,255,255,.7);border-left:4px solid var(--blue);box-shadow:var(--shadow-sm);color:var(--muted);line-height:1.58}
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:1vw;align-items:stretch}
+  .flow .step{position:relative;background:rgba(255,255,255,.65);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.8);padding:2.4vh 1.2vw;box-shadow:var(--shadow-sm)}
+  .flow .step:not(:last-child)::after{content:"";position:absolute;right:-.65vw;top:50%;width:.8vw;height:1px;background:var(--blue)}
+  .action-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2vw}
+  .action-item{background:rgba(255,255,255,.7);box-shadow:var(--shadow-sm);border:1px solid rgba(255,255,255,.84);padding:2vh 1.4vw}
+  .action-item .tag{display:inline-flex;height:24px;align-items:center;padding:0 10px;background:var(--blue-2);color:var(--blue);font-size:12px;font-weight:700;margin-bottom:1vh}
+  .image-frame{width:100%;overflow:hidden;border:1px solid rgba(255,255,255,.84);background:rgba(255,255,255,.68);box-shadow:var(--shadow-sm)}
+  .image-frame img{display:block;width:100%;height:100%;object-fit:contain}
+  .image-cover img{object-fit:cover}
+  .image-contain img{object-fit:contain}
+  .image-16x9{aspect-ratio:16/9}
+  .image-3x2{aspect-ratio:3/2}
+  .media-head{display:grid;grid-template-columns:.92fr 1.08fr;gap:3vw;align-items:center}
+  .metric-strip{grid-template-columns:repeat(4,1fr)}
+  .solution-body{display:grid;grid-template-columns:.92fr 1.08fr;gap:3vw;align-items:center}
+  .flow.flow-vertical{grid-template-columns:1fr;gap:1.05vh}
+  .flow.flow-vertical .step{padding:1.35vh 1.2vw}
+  .flow.flow-vertical .step:not(:last-child)::after{display:none}
+  .flow.flow-vertical .desc{margin-top:.55vh}
+  .roadmap-body{display:grid;grid-template-columns:1.05fr .95fr;gap:3vw;align-items:center}
+  .roadmap-list{display:grid;gap:1.2vh}
+  .footer{position:absolute;left:5vw;right:5vw;bottom:2.6vh;display:flex;justify-content:space-between;align-items:center;color:#8b98a8;font-size:12px}
+  body.screenshot-mode .footer{display:none}
+  .dots{display:flex;gap:8px}
+  .dot{width:8px;height:8px;border:0;background:#c8d5e8;padding:0;cursor:pointer;border-radius:4px;transition:all .3s}
+  .dot.active{width:24px;background:var(--blue)}
+  #overview .slide{display:block!important;width:100vw!important;height:100vh!important;flex:none!important}
+  #overview .slide h1,#overview .slide h2,#overview .slide .lead,#overview .slide .card,#overview .slide .step,#overview .slide .bar,#overview .slide .section-mark,#overview .slide .section-title,#overview .slide .donut,#overview .slide .icon-circle,#overview .slide .image-frame{opacity:1!important;transform:none!important;transition:none!important}
+  /* 圆形图标容器 */
+  .icon-circle{width:56px;height:56px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;margin-bottom:1.6vh;flex-shrink:0}
+  .icon-circle svg{width:28px;height:28px;fill:#fff}
+  .icon-circle.outline{background:transparent;border:2px solid var(--blue)}
+  .icon-circle.outline svg{fill:var(--blue)}
+  .icon-circle.lg{width:72px;height:72px}
+  .icon-circle.lg svg{width:36px;height:36px}
+
+  /* CSS 环形图 */
+  .donut{position:relative;width:140px;height:140px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .donut-label{font-size:28px;font-weight:700;color:var(--blue)}
+  .donut-sub{font-size:12px;color:var(--muted);text-align:center}
+  /* CSS 条形图 */
+  .bar-chart{display:grid;gap:1.1vh}
+  .bar-row{display:grid;grid-template-columns:8ch 1fr 6ch;gap:1vw;align-items:center;font-size:max(12px,.85vw);color:var(--muted)}
+  .bar-track{height:18px;background:#e8f1ff;border-radius:2px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+  /* 目录编号圆 */
+  .agenda-num{width:48px;height:48px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;flex-shrink:0;margin-bottom:1.2vh}
+  /* 卡片顶部蓝条 */
+  .card.top-accent{border-top:3px solid var(--blue)}
+  /* 动画 */
+  .slide h1,.slide h2,.slide .lead,.slide .card,.slide .step,.slide .bar,.slide .section-mark,.slide .section-title,.slide .donut,.slide .icon-circle,.slide .image-frame{
+    opacity:0;transform:translateY(24px);transition:all 0.65s cubic-bezier(0.16,1,0.3,1);
+  }
+  .slide.active h1,.slide.active h2,.slide.active .lead,.slide.active .card,.slide.active .step,.slide.active .bar,.slide.active .section-mark,.slide.active .section-title,.slide.active .donut,.slide.active .icon-circle,.slide.active .image-frame{
+    opacity:1;transform:translateY(0);
+  }
+  .slide.active h1,.slide.active h2{transition-delay:.1s}
+  .slide.active .bar{transition-delay:.15s}
+  .slide.active .lead{transition-delay:.2s}
+  .slide.active .card:nth-child(1),.slide.active .step:nth-child(1){transition-delay:.2s}
+  .slide.active .card:nth-child(2),.slide.active .step:nth-child(2){transition-delay:.3s}
+  .slide.active .card:nth-child(3),.slide.active .step:nth-child(3){transition-delay:.4s}
+  .slide.active .card:nth-child(4),.slide.active .step:nth-child(4){transition-delay:.5s}
+  .slide.active .card:nth-child(5),.slide.active .step:nth-child(5){transition-delay:.6s}
+  .slide.active .card:nth-child(6),.slide.active .step:nth-child(6){transition-delay:.7s}
+</style>
+</head>
+<body>
+<main id="deck">
+
+<!-- ==================== 第 1 页：封面 ==================== -->
+<section class="slide cover-full" data-layout="cover">
+  <div class="cover-bg">
+    <img src="images/cover-visual.png" alt="安全应急数智化主视觉">
+  </div>
+  <div class="cover-shade"></div>
+  <div class="cover-copy">
+    <div>
+      <h1>数智赋能安全应急<br>从被动响应走向主动预防</h1>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 第 2 页：目录 ==================== -->
+<section class="slide" data-layout="agenda"
+  data-question="这份汇报讲什么、按什么逻辑推进"
+  data-message="从行业压力出发，经过问题、方案、证明，最终给出合作建议">
+  <div class="chrome">
+    <span class="brand">安信科创</span>
+    <span class="page">02 / 08</span>
+  </div>
+  <div class="content">
+    <div>
+      <div class="eyebrow">汇报结构</div>
+      <h2>今天的汇报围绕一个核心问题展开</h2>
+      <div class="bar"></div>
+      <p class="lead">危化园区的安全管理如何从人盯人走向平台化协同？我们分五步回答。</p>
+    </div>
+    <div class="grid-3" style="grid-template-columns:repeat(5,1fr);gap:1vw">
+      <div class="card top-accent" style="text-align:center">
+        <div class="agenda-num" style="margin:0 auto 1.2vh">01</div>
+        <h3>行业压力</h3><p class="desc">政策趋严、事故频发，传统管理模式已到瓶颈</p>
+      </div>
+      <div class="card top-accent" style="text-align:center">
+        <div class="agenda-num" style="margin:0 auto 1.2vh">02</div>
+        <h3>核心缺口</h3><p class="desc">预案、感知、推演、培训各自为政，缺少平台串联</p>
+      </div>
+      <div class="card top-accent" style="text-align:center">
+        <div class="agenda-num" style="margin:0 auto 1.2vh">03</div>
+        <h3>解决路径</h3><p class="desc">安信用数智化平台把五个环节连成闭环</p>
+      </div>
+      <div class="card top-accent" style="text-align:center">
+        <div class="agenda-num" style="margin:0 auto 1.2vh">04</div>
+        <h3>能力证明</h3><p class="desc">47 个园区、12 万人次训练验证路径可行</p>
+      </div>
+      <div class="card top-accent" style="text-align:center">
+        <div class="agenda-num" style="margin:0 auto 1.2vh">05</div>
+        <h3>合作建议</h3><p class="desc">从试点园区开始，3 个月完成验证</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 第 3 页：行业背景 ==================== -->
+<section class="slide" data-layout="overview"
+  data-question="为什么安全应急现在值得关注"
+  data-message="政策加码 + 事故代价上升，安全应急数智化是刚需而非可选项">
+  <div class="chrome">
+    <span class="brand">安信科创</span>
+    <span class="page">03 / 08</span>
+  </div>
+  <div class="content">
+    <div class="media-head">
+      <div>
+        <div class="eyebrow">行业背景</div>
+        <h2>安全应急数智化是政策刚需，不是技术概念</h2>
+        <div class="bar"></div>
+        <p class="lead">2024 年全国危化品事故直接经济损失超 38 亿元，应急管理部明确要求重点园区 2025 年底前完成智能化改造。安责险保费规模突破 120 亿元，风险减量服务成为保司核心竞争力。</p>
+      </div>
+      <div class="image-frame image-16x9 image-contain">
+        <img src="images/industry-platform.png" alt="危化园区智能化改造场景">
+      </div>
+    </div>
+    <div class="grid-4 metric-strip">
+      <div class="card">
+        <div class="num">38亿</div>
+        <h3>年事故损失</h3>
+        <p class="desc">2024 年危化品事故直接经济损失，同比上升 12%</p>
+      </div>
+      <div class="card">
+        <div class="num">120亿</div>
+        <h3>安责险保费</h3>
+        <p class="desc">年增速 18%，风险减量成为保司和监管共同关注点</p>
+      </div>
+      <div class="card">
+        <div class="num">680+</div>
+        <h3>重点园区</h3>
+        <p class="desc">应急管理部要求 2025 年底前完成智能化安全管控</p>
+      </div>
+      <div class="card">
+        <div class="num">82%</div>
+        <h3>预案过期率</h3>
+        <p class="desc">超八成企业预案超过 2 年未更新，演练流于形式</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 第 4 页：问题与缺口 ==================== -->
+<section class="slide" data-layout="problem"
+  data-question="传统安全管理到底缺什么"
+  data-message="不是缺工具，而是缺把预案、感知、推演、培训串联起来的平台">
+  <div class="chrome">
+    <span class="brand">安信科创</span>
+    <span class="page">04 / 08</span>
+  </div>
+  <div class="content">
+    <div>
+      <div class="eyebrow">核心缺口</div>
+      <h2>传统安全管理靠人盯人，无法应对复杂场景</h2>
+      <div class="bar"></div>
+    </div>
+    <div class="grid-3">
+      <div class="card top-accent">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 20V4h7v5h5v11H6zm2-6h8v2H8v-2zm0-3h8v2H8v-2z"/></svg>
+        </div>
+        <h3>预案与实战脱节</h3>
+        <p class="desc">预案停留在纸面，缺少三维场景还原和动态推演能力。某港口 2023 年应急演练中，指挥层无法调取实时气象和扩散模型，导致撤离方向判断失误。</p>
+      </div>
+      <div class="card top-accent">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-4h2v2h-2v-2zm1-10a3 3 0 0 0-3 3h2a1 1 0 1 1 2 0c0 1-2 .88-2 3h2c0-1.36 2-1.5 2-3a3 3 0 0 0-3-3z"/></svg>
+        </div>
+        <h3>感知能力碎片化</h3>
+        <p class="desc">园区内 IOT 传感器、视频监控、气象站各自独立，数据不互通。某化工园区有 2000+ 传感器但无统一告警平台，夜间值班仅靠 2 人巡查 48 个罐区。</p>
+      </div>
+      <div class="card top-accent">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4zM4.5 9H2v2h2.5V9zM7 6.5V4H5v2.5h2zm5-4.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+        </div>
+        <h3>培训覆盖不足</h3>
+        <p class="desc">危化岗位年均培训不足 8 学时，远低于法规要求的 72 学时。真实场景难以复现，新员工上岗前缺乏沉浸式安全训练。</p>
+      </div>
+    </div>
+    <p class="lead">结论：不是缺某个单点工具，而是缺一个把预案、感知、推演、培训和保险风控连接起来的平台。</p>
+  </div>
+</section>
+
+<!-- ==================== 第 5 页：解决方案 ==================== -->
+<section class="slide" data-layout="solution"
+  data-question="安信用什么方式解决这些问题"
+  data-message="五步闭环——从风险识别到持续治理，每步有具体产品和数据支撑">
+  <div class="chrome">
+    <span class="brand">安信科创</span>
+    <span class="page">05 / 08</span>
+  </div>
+  <div class="content">
+    <div>
+      <div class="eyebrow">解决路径</div>
+      <h2>五步闭环：从风险识别到持续治理</h2>
+      <div class="bar"></div>
+    </div>
+    <div class="solution-body">
+      <div class="image-frame image-3x2 image-contain">
+        <img src="images/solution-loop.png" alt="安全应急数智化五步闭环">
+      </div>
+      <div class="flow flow-vertical">
+        <div class="step">
+          <h3>风险识别</h3>
+          <p class="desc">IOT + 视觉 AI 实时感知，接入 2000+ 传感器，覆盖气体、温度、压力、视频</p>
+        </div>
+        <div class="step">
+          <h3>预案建模</h3>
+          <p class="desc">三维场景 + 虚拟仿真，支持危化品泄漏、火灾、爆炸 3 类 12 种预案模板</p>
+        </div>
+        <div class="step">
+          <h3>推演预警</h3>
+          <p class="desc">FLACS 气体扩散模拟 + AI 预测，提前 90 秒预警，误报率低于 3%</p>
+        </div>
+        <div class="step">
+          <h3>指挥调度</h3>
+          <p class="desc">GIS 一张图 + 应急资源调度，支持多部门协同，响应时间缩短 60%</p>
+        </div>
+        <div class="step">
+          <h3>复盘治理</h3>
+          <p class="desc">全流程数据回放 + 隐患闭环管理，整改完成率从 67% 提升至 94%</p>
+        </div>
+      </div>
+    </div>
+    <p class="lead">安信不是单一产品供应商，而是把预案、感知、推演、培训和保险风控连接成闭环的平台。</p>
+  </div>
+</section>
+
+<!-- ==================== 第 6 页：能力证明 ==================== -->
+<section class="slide" data-layout="metrics"
+  data-question="这些能力是否经过验证"
+  data-message="47 个园区、12 万人次、6 家保司的实际数据证明路径可行">
+  <div class="chrome">
+    <span class="brand">安信科创</span>
+    <span class="page">06 / 08</span>
+  </div>
+  <div class="content">
+    <div>
+      <div class="eyebrow">能力证明</div>
+      <h2>3 年 47 个园区验证了平台化路径可行</h2>
+      <div class="bar"></div>
+    </div>
+    <div class="grid-2" style="grid-template-columns:1fr 1.2fr;gap:3vw">
+      <!-- 左侧：环形图 + 关键数字 -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:2vh">
+        <div class="donut" style="background:conic-gradient(var(--blue) 0deg 252deg,#e8f1ff 252deg 360deg)">
+          <div style="width:100px;height:100px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center">
+            <div class="donut-label">70%</div>
+            <div class="donut-sub">整改闭环率提升</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1vw;width:100%">
+          <div class="card" style="text-align:center"><div class="num" style="font-size:min(2.8vw,4.8vh)">47</div><p class="desc">覆盖石化、港口、煤化工等重点园区</p></div>
+          <div class="card" style="text-align:center"><div class="num" style="font-size:min(2.8vw,4.8vh)">12万+</div><p class="desc">年度线上线下一体化训练人次</p></div>
+        </div>
+      </div>
+      <!-- 右侧：条形图 + 卡片 -->
+      <div style="display:grid;gap:2vh">
+        <div class="bar-chart">
+          <div class="bar-row"><span>石化园区</span><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div><span>82%</span></div>
+          <div class="bar-row"><span>港口码头</span><div class="bar-track"><div class="bar-fill" style="width:68%"></div></div><span>68%</span></div>
+          <div class="bar-row"><span>煤化工</span><div class="bar-track"><div class="bar-fill" style="width:54%"></div></div><span>54%</span></div>
+          <div class="bar-row"><span>精细化工</span><div class="bar-track"><div class="bar-fill" style="width:41%"></div></div><span>41%</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1vw">
+          <div class="card blue"><div class="num" style="font-size:min(2.8vw,4.8vh)">6</div><h3>合作保司</h3><p class="desc">太保、人保、平安等</p></div>
+          <div class="card blue"><div class="num" style="font-size:min(2.8vw,4.8vh)">37%</div><h3>事故率下降</h3><p class="desc">上线 6 个月数据</p></div>
+        </div>
+      </div>
+    </div>
+    <p class="lead">代表项目：XX 石化园区（2023）、XX 港口危化品码头（2024）、XX 省安责险风控平台（2024）。</p>
+  </div>
+</section>
+
+<!-- ==================== 第 7 页：推进路径 ==================== -->
+<section class="slide" data-layout="roadmap"
+  data-question="接下来怎么推进合作"
+  data-message="3 个月试点验证、6 个月标准化复制、12 个月形成省级平台">
+  <div class="chrome">
+    <span class="brand">安信科创</span>
+    <span class="page">07 / 08</span>
+  </div>
+  <div class="content">
+    <div>
+      <div class="eyebrow">推进路径</div>
+      <h2>从试点园区到省级平台，分三步走</h2>
+      <div class="bar"></div>
+    </div>
+    <div class="roadmap-body">
+      <div class="roadmap-list">
+        <div class="card soft">
+          <div class="eyebrow">第一阶段 · 1-3 月</div>
+          <h3>试点验证</h3>
+          <p class="desc">选取 1 个重点园区，部署感知 + 预警 + 仿真训练三个核心模块，完成系统联调和效果验证。</p>
+        </div>
+        <div class="card soft">
+          <div class="eyebrow">第二阶段 · 4-6 月</div>
+          <h3>标准化复制</h3>
+          <p class="desc">基于试点经验形成标准化部署方案，扩展至 3-5 个同类园区，建立服务运营流程。</p>
+        </div>
+        <div class="card soft">
+          <div class="eyebrow">第三阶段 · 7-12 月</div>
+          <h3>平台化运营</h3>
+          <p class="desc">整合区域内园区数据，对接安责险服务平台，形成省级安全应急数智化平台。</p>
+        </div>
+      </div>
+      <div class="image-frame image-3x2 image-contain">
+        <img src="images/pilot-training.png" alt="危化园区试点部署与培训演练">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 第 8 页：收尾 ==================== -->
+<section class="slide" data-layout="closing"
+  data-question="希望对方做什么"
+  data-message="从一个试点园区开始，用 3 个月验证平台化安全管理的价值">
+  <div class="chrome">
+    <span class="brand">安信科创</span>
+    <span class="page">08 / 08</span>
+  </div>
+  <div class="content grid-2">
+    <div>
+      <h2>从一个园区开始<br>验证平台化安全管理的价值</h2>
+      <div class="bar"></div>
+      <p class="lead">安信不是卖一套系统，而是和您一起构建从预防到治理的完整能力。我们希望用一个试点项目证明这条路径的可行性。</p>
+    </div>
+    <div>
+      <div class="action-list" style="grid-template-columns:1fr">
+        <div class="action-item">
+          <div class="tag">建议 1</div>
+          <h3>确定试点园区</h3>
+          <p class="desc">选择 1 个有 IOT 基础的危化园区，安信提供 3 个月免费试点方案</p>
+        </div>
+        <div class="action-item">
+          <div class="tag">建议 2</div>
+          <h3>成立联合工作组</h3>
+          <p class="desc">园区安全负责人 + 安信技术团队 + 保司风控人员，每两周同步进展</p>
+        </div>
+        <div class="action-item">
+          <div class="tag">建议 3</div>
+          <h3>6 月底前输出评估报告</h3>
+          <p class="desc">基于试点数据输出效果评估，作为后续扩展和政策申报的依据</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div class="footer">
+  <div>← → 翻页 · Esc 缩略图</div>
+  <div class="dots" id="nav"></div>
+</div>
+<script>
+const deck=document.getElementById('deck');
+const slides=[...document.querySelectorAll('.slide')];
+const nav=document.getElementById('nav');
+const footer=document.querySelector('.footer');
+const params=new URLSearchParams(location.search);
+const screenshotMode=params.get('screenshot')==='1';
+const initialSlide=Math.max(0,Math.min(slides.length-1,(parseInt(params.get('slide')||'1',10)||1)-1));
+let current=0;
+let overviewOn=false;
+if(screenshotMode) document.body.classList.add('screenshot-mode');
+const overview=document.createElement('div');
+overview.id='overview';
+overview.style.cssText='position:fixed;inset:0;z-index:100;background:rgba(246,249,255,.96);backdrop-filter:blur(12px);display:none;overflow-y:auto;padding:4vh 4vw';
+document.body.appendChild(overview);
+deck.style.width=(slides.length*100)+'vw';
+slides.forEach((_,i)=>{
+  const b=document.createElement('button');
+  b.className='dot';
+  b.setAttribute('aria-label','第 '+(i+1)+' 页');
+  b.onclick=()=>go(i);
+  nav.appendChild(b);
+});
+function go(i){
+  current=Math.max(0,Math.min(slides.length-1,i));
+  deck.style.transform='translateX('+(-current*100)+'vw)';
+  slides.forEach((s,n)=>s.classList.toggle('active',n===current));
+  [...nav.children].forEach((d,n)=>d.classList.toggle('active',n===current));
+  if(footer) footer.style.visibility=current===0?'hidden':'visible';
+}
+function buildOverview(){
+  overview.innerHTML='';
+  const grid=document.createElement('div');
+  grid.style.cssText='display:grid;grid-template-columns:repeat(4,1fr);gap:2vh 1.6vw;max-width:90vw;margin:0 auto';
+  slides.forEach((slide,i)=>{
+    const card=document.createElement('button');
+    card.type='button';
+    card.style.cssText='display:block;width:100%;padding:0;cursor:pointer;overflow:hidden;border:2px solid '+(i===current?'var(--blue)':'rgba(16,32,51,.14)')+';background:#fff;text-align:left;box-shadow:var(--shadow-sm)';
+    card.onmouseenter=()=>card.style.borderColor='rgba(20,87,217,.7)';
+    card.onmouseleave=()=>card.style.borderColor=i===current?'var(--blue)':'rgba(16,32,51,.14)';
+    const wrap=document.createElement('div');
+    wrap.style.cssText='width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;pointer-events:none;background:#fff';
+    const clone=slide.cloneNode(true);
+    clone.style.cssText='width:100vw;height:100vh;transform:scale('+(1/4.5)+');transform-origin:top left;position:absolute;top:0;left:0;pointer-events:none';
+    clone.classList.add('active');
+    wrap.appendChild(clone);
+    const label=document.createElement('div');
+    label.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:7px 10px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums';
+    label.innerHTML='<span>第 '+(i+1)+' 页</span><span>'+String(i+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0')+'</span>';
+    card.appendChild(wrap);
+    card.appendChild(label);
+    card.onclick=()=>{toggleOverview();go(i)};
+    grid.appendChild(card);
+  });
+  overview.appendChild(grid);
+}
+function toggleOverview(){
+  overviewOn=!overviewOn;
+  if(overviewOn){
+    buildOverview();
+    overview.style.display='block';
+  }else{
+    overview.style.display='none';
+  }
+}
+addEventListener('keydown',e=>{
+  if(e.key==='Escape'){e.preventDefault();toggleOverview();return;}
+  if(overviewOn)return;
+  if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ') go(current+1);
+  if(e.key==='ArrowLeft'||e.key==='PageUp') go(current-1);
+  if(e.key==='Home') go(0);
+  if(e.key==='End') go(slides.length-1);
+});
+go(initialSlide);
+</script>
+</body>
+</html>
