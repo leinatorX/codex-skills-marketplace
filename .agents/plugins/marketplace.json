@@ -1,7 +1,7 @@
 {
-  "name": "skillshub-codex",
+  "name": "leinator-codex",
   "interface": {
-    "displayName": "SkillsHub Codex"
+    "displayName": "By Leinator"
   },
   "plugins": [
     {
