@@ -1,0 +1,31 @@
+{
+  "name": "ai-video-director",
+  "version": "1.0.0",
+  "description": "AI 视频导演工作流，用于把一句话创意扩展成可执行的 AI 短视频制作方案。",
+  "author": {
+    "name": "leinatorX",
+    "url": "https://github.com/leinatorX"
+  },
+  "homepage": "https://github.com/leinatorX/codex-skills-marketplace",
+  "repository": "https://github.com/leinatorX/codex-skills-marketplace",
+  "keywords": [
+    "codex",
+    "skills",
+    "skillshub"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "AI 视频导演",
+    "shortDescription": "把一句话创意扩展成 AI 短视频剧本、分镜、资产清单和模型提示词。",
+    "longDescription": "AI 视频导演工作流，用于把一句话创意扩展成 AI 短视频剧本、集-序列-镜头规划、参考资产清单、定妆照与关键帧提示词、序列级视频提示词、生成质检和平台发布方案。",
+    "developerName": "leinatorX",
+    "category": "Productivity",
+    "capabilities": [
+      "Skills"
+    ],
+    "websiteURL": "https://github.com/leinatorX/codex-skills-marketplace",
+    "defaultPrompt": [
+      "使用 ai-video-director 为一个短视频创意生成导演方案。"
+    ]
+  }
+}

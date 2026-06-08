@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 视频导演"
+  short_description: "从一句话生成 AI 短视频剧本、定妆照、序列提示词和剪辑表。"
+  default_prompt: "使用 $ai-video-director 把一个短视频创意扩展成剧本、关键资产清单、定妆照提示词、序列级视频提示词和镜头剪辑表；默认视频模型用 Grok Imagine Video，默认图像模型用 GPT Image 2。"
